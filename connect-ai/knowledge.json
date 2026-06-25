@@ -1,111 +1,55 @@
 [
   {
-    "id": "n17812485430457153",
-    "text": "[📄 AGENTS.md]\n# AGENTS.md\n\n## About Spec Kit and Specify\n\n**GitHub Spec Kit** is a comprehensive toolkit for implementing Spec-Driven Development (SDD) - a methodology that emphasizes creating clear specifications before implementation. The toolkit includes templates, scripts, and workflows that guide development teams through a structured approach to building software.\n\n**Specify CLI** is the command-line interface that bootstraps projects with the Spec Kit framework. It sets up the necessary directory structures, templates, and AI agent integrations to support the Spec-Driven Development workflow.\n\nThe toolkit supports multiple AI coding assistants, allowing teams to use their preferred tools while maintaining consistent project structure and development practices.\n\n---\n\n## Integration Architecture\n\nEach AI agent is a self-contained **integration subpackage** under `src/specify_cli/integrations/<key>/`. The subpackage exposes a single class that declares all metadata and inherits setup/teardown logic from a base class. Built-in integrations are then instantiated and added to the global `INTEGRATION_REGISTRY` by `src/specify_cli/integrations/__init__.py` via `_register_builtins()`.\n\n```\nsrc/specify_cli/integrations/\n├── __init__.py            # INTEGRATION_REGISTRY + _register_builtins()\n├── base.py                # IntegrationBase, MarkdownIntegration, TomlIntegration, YamlIntegration, SkillsIntegration\n├── manifest.py            # IntegrationManifest (file tracking)\n├── claude/                # Example: SkillsIntegration subclass\n│   └── __init__.py        #   ClaudeIntegration class\n├── gemini/                # Example: TomlIntegration subclass\n│   └── __init__.py\n├── windsurf/              # Example: MarkdownIntegration subclass\n│   └── __init__.py\n├── copilot/               # Example: IntegrationBase subclass (custom setup)\n│   └── __init__.py\n└── ...                    # One subpackage per supported agent\n```\n\nThe registry is the **single source of truth for Python integra",
+    "id": "n17817686375584550",
+    "text": "# AGENTS.md\n# AGENTS.md\n\n## About Spec Kit and Specify\n\n**GitHub Spec Kit** is a comprehensive toolkit for implementing Spec-Driven Development (SDD) - a methodology that emphasizes creating clear specifications before implementation. The toolkit includes templates, scripts, and workflows that guide development teams through a structured approach to building software.\n\n**Specify CLI** is the command-line interface that bootstraps projects with the Spec Kit framework. It sets up the necessary directory structures, templates, and AI agent integrations to support the Spec-Driven Development workflow.\n\nThe toolkit supports multiple AI coding assistants, allowing teams to use their preferred tools while maintaining consistent project structure and development practices.\n\n---\n\n## Integration Architecture\n\nEach AI agent is a self-contained **integration subpackage** under `src/specify_cli/integrations/<key>/`. The subpackage exposes a single class that declares all metadata and inherits setup/teardown logic from a base class. Built-in integrations are then instantiated and added to the global `INTEGRATION_REGISTRY` by `src/specify_cli/integrations/__init__.py` via `_register_builtins()`.\n\n```\nsrc/specify_cli/integrations/\n├── __init__.py            # INTEGRATION_REGISTRY + _register_builtins()\n├── base.py                # IntegrationBase, MarkdownIntegration, TomlIntegration, YamlIntegration, SkillsIntegration\n├── manifest.py            # IntegrationManifest (file tracking)\n├── claude/                # Example: SkillsIntegration subclass\n│   └── __init__.py        #   ClaudeIntegration class\n├── gemini/                # Example: TomlIntegration subclass\n│   └── __init__.py\n├── windsurf/              # Example: MarkdownIntegration subclass\n│   └── __init__.py\n├── copilot/               # Example: IntegrationBase subclass (custom setup)\n│   └── __init__.py\n└── ...                    # One subpackage per supported agent\n```\n\nThe registry is the **single source of truth for Python integration metadata**. Supported agents, their directories, formats, capabilities, and context files are derived from the integration classes for the Python integration layer.\n\n---\n\n## Adding a New Integration\n\n### 1. Choose a base class\n\n| Your agent needs… | Subclass |\n|---|---|\n| Standard markdown commands (`.md`) | `MarkdownIntegration` |\n| TOML-format commands (`.toml`) | `TomlIntegration` |\n| YAML recipe files (`.yaml`) | `YamlIntegration` |\n| Skill directories (`speckit-<name>/SKILL.md`) | `SkillsIntegration` |\n| Fully custom output (companion files, settings merge, etc.) | `IntegrationBase` directly |\n\nMost agents only need `MarkdownIntegration` — a minimal subclass with zero method overrides.\n\n### 2. Create the subpackage\n\nCreate `src/specify_cli/integrations/<package_dir>/__init__.py`, where `<package_dir>` is the Python-safe directory name derived from `<key>`: use the key as-is when it contains no hyphens (e.g., key `\"gemini\"` → `gemini/`), or replace hyphens with underscores when it does (e.g., key `\"kiro-cli\"` → `kiro_cli/`). The `IntegrationBase.key` class attribute always retains the original hyphenated value, since that is what the CLI and registry use. For CLI-based integrations (`requires_cli: True`), the `key` should match the actual CLI tool name (the executable users install and run) so CLI checks can resolve it correctly. For IDE-based integrations (`requires_cli: False`), use the canonical integration identifier instead.\n\n**Minimal example — Markdown agent (Windsurf):**\n\n```python\n\"\"\"Windsurf IDE integration.\"\"\"\n\nfrom ..base import MarkdownIntegration\n\n\nclass WindsurfIntegration(MarkdownIntegration):\n    key = \"windsurf\"\n    config = {\n        \"name\": \"Windsurf\",\n        \"folder\": \".windsurf/\",\n        \"commands_subdir\": \"workflows\",\n        \"install_url\": None,\n        \"requires_cli\": False,\n    }\n    registrar_config = {\n        \"dir\": \".windsurf/workflows\",\n        \"format\": \"markdown\",\n        \"args\": \"$ARGUMENTS\",\n        \"extensio",
     "tags": [
-      "init",
-      "spec",
-      "specify",
+      "cli",
+      "integration",
       "integrations",
-      "development",
-      "cli"
+      "key",
+      "init",
+      "windsurf"
     ],
-    "ts": 1781248537596
+    "ts": 1781768637558,
+    "category": "coding",
+    "source": "me",
+    "verified": true
   },
   {
-    "id": "n17812485430477331",
-    "text": "[📄 CHANGELOG.md]\n# Changelog\n\n<!-- insert new changelog below this comment -->\n\n## [0.10.1] - 2026-06-09\n\n### Changed\n\n- Update DocGuard — CDD Enforcement extension to v0.25.1 (#2909)\n- Update a11y-governance preset to v0.3.0 (#2867)\n- docs: document spec persistence models (#2856)\n- chore(catalog): bump Linear Integration to v0.3.0 (repo renamed to spec-kit-linear-sync) (#2893)\n- chore: update DocGuard extension to v0.25.0 (#2707)\n- chore: remove unused open_github_url/_StripAuthOnRedirect from _github_http.py (#2883)\n- fix(catalogs): validate extension and preset catalog payload shape (#2621)\n- feat(integration): add status reporting (#2674)\n- chore: release 0.10.0, begin 0.10.1.dev0 development (#2904)\n\n## [0.10.0] - 2026-06-09\n\n### Changed\n\n- feat: make git extension opt-in and remove --no-git at v0.10.0 (#2873)\n- [Preset] UpdateFiction book writing v1.9.0 - Illustration support (#2821)\n- test(workflows): cover executable override fallback preflight (#2843)\n- Add GitHub Copilot CLI guidance to readme (#2891)\n- Update Security Review extension to v1.5.3 (#2898)\n- Update Architecture Guard extension to v1.8.17 (#2897)\n- feat(extensions): per-event hook lists with priority ordering (#2798)\n- feat!: remove legacy --ai, --ai-commands-dir, and --ai-skills flags (0.10.0) (#2872)\n- chore: release 0.9.5, begin 0.9.6.dev0 development (#2875)\n\n## [0.9.5] - 2026-06-05\n\n### Changed\n\n- feat(extensions): add bundled bug triage workflow extension (#2871)\n- fix: resolve GitHub release asset API URL for private repo preset and workflow downloads (#2855)\n- chore(deps): bump github/gh-aw-actions from 0.77.0 to 0.78.1 (#2860)\n- chore(deps): bump actions/checkout from 6.0.2 to 6.0.3 (#2859)\n- chore(deps): bump astral-sh/setup-uv from 8.1.0 to 8.2.0 (#2858)\n- chore(deps): bump github/codeql-action from 4.36.0 to 4.36.2 (#2857)\n- fix(workflows): render gate show_file contents in the interactive prompt (#2810)\n- feat: add support for rovodev (#2539)\n- chore: release 0.9.4, begin 0.9.5.dev0 development (",
-    "tags": [
-      "chore",
-      "extension",
-      "github",
-      "feat",
-      "update",
-      "bump"
-    ],
-    "ts": 1781248537925
-  },
-  {
-    "id": "n17812485430489777",
-    "text": "[📄 CODE_OF_CONDUCT.md]\n# Contributor Covenant Code of Conduct\n\n## Our Pledge\n\nIn the interest of fostering an open and welcoming environment, we as\ncontributors and maintainers pledge to making participation in our project and\nour community a harassment-free experience for everyone, regardless of age, body\nsize, disability, ethnicity, gender identity and expression, level of experience,\nnationality, personal appearance, race, religion, or sexual identity and\norientation.\n\n## Our Standards\n\nExamples of behavior that contributes to creating a positive environment\ninclude:\n\n- Using welcoming and inclusive language\n- Being respectful of differing viewpoints and experiences\n- Gracefully accepting constructive criticism\n- Focusing on what is best for the community\n- Showing empathy towards other community members\n\nExamples of unacceptable behavior by participants include:\n\n- The use of sexualized language or imagery and unwelcome sexual attention or\n  advances\n- Trolling, insulting/derogatory comments, and personal or political attacks\n- Public or private harassment\n- Publishing others' private information, such as a physical or electronic\n  address, without explicit permission\n- Other conduct which could reasonably be considered inappropriate in a\n  professional setting\n\n## Our Responsibilities\n\nProject maintainers are responsible for clarifying the standards of acceptable\nbehavior and are expected to take appropriate and fair corrective action in\nresponse to any instances of unacceptable behavior.\n\nProject maintainers have the right and responsibility to remove, edit, or\nreject comments, commits, code, wiki edits, issues, and other contributions\nthat are not aligned to this Code of Conduct, or to ban temporarily or\npermanently any contributor for other behaviors that they deem inappropriate,\nthreatening, offensive, or harmful.\n\n## Scope\n\nThis Code of Conduct applies both within project spaces and in public spaces\nwhen an individual is representing the project or its community. Examples of\nrep",
-    "tags": [
-      "code",
-      "conduct",
-      "our",
-      "project",
-      "community",
-      "behavior"
-    ],
-    "ts": 1781248538242
-  },
-  {
-    "id": "n17812485430489004",
-    "text": "[📄 CONTRIBUTING.md]\n# Contributing to Spec Kit\n\nHi there! We're thrilled that you'd like to contribute to Spec Kit. Contributions to this project are [released](https://help.github.com/articles/github-terms-of-service/#6-contributions-under-repository-license) to the public under the [project's open source license](LICENSE).\n\nPlease note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.\n\n## Prerequisites for running and testing code\n\nThese are one time installations required to be able to test your changes locally as part of the pull request (PR) submission process.\n\n1. Install [Python 3.11+](https://www.python.org/downloads/)\n1. Install [uv](https://docs.astral.sh/uv/) for package management\n1. Install [Git](https://git-scm.com/downloads)\n1. Have an [AI coding agent available](README.md#-supported-ai-coding-agent-integrations)\n\n<details>\n<summary><b>💡 Hint if you are using <code>VSCode</code> or <code>GitHub Codespaces</code> as your IDE</b></summary>\n\n<br>\n\nProvided you have [Docker](https://docker.com) installed on your machine, you can leverage [Dev Containers](https://containers.dev) through this [VSCode extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers), to easily set up your development environment, with aforementioned tools already installed and configured, thanks to the `.devcontainer/devcontainer.json` file (located at the root of the project).\n\nTo do so, simply:\n\n- Checkout the repo\n- Open it with VSCode\n- Open the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) and select \"Dev Containers: Open Folder in Container...\"\n\nOn [GitHub Codespaces](https://github.com/features/codespaces) it's even simpler, as it leverages the `.devcontainer/devcontainer.json` automatically upon opening the codespace.\n\n</details>\n\n## Submitting a pull request\n\n> [!NOTE]\n> If your pull request introduce",
-    "tags": [
-      "https",
-      "code",
-      "com",
-      "you",
-      "project",
-      "github"
-    ],
-    "ts": 1781248538515
-  },
-  {
-    "id": "n17812485430487822",
-    "text": "[📄 DESIGN.md]\n# MasterClass — Style Reference\n> Midnight Stage Presence\n\n**Theme:** dark\n**Source:** https://www.masterclass.com\n**Category:** education / premium streaming\n**Origin:** Refero Styles (https://styles.refero.design/)\n\nMasterClass employs a dark, cinematic UI, reminiscent of a premium streaming platform. Dominant blacks and deep charcoals create a sophisticated environment, allowing vibrant accents to punctuate interactive elements and brand moments. Typography is bold and confident, commanding attention within the high-contrast setting. Component surfaces are subtle, often inset, maintaining a flat aesthetic that emphasizes content and celebrity figures over overt ornamentation.\n\n## Tokens — Colors\n\n| Name | Value | Token | Role |\n|------|-------|-------|------|\n| Pitch Black | `#000000` | `--color-pitch-black` | Primary background for footers and expansive content sections, subtle borders, text for badges |\n| Charcoal Canvas | `#222326` | `--color-charcoal-canvas` | Default page background, card backgrounds |\n| Graphite Base | `#0d0d0e` | `--color-graphite-base` | Background for subtle surface differentiation, text buttons, and darker borders |\n| Deep Slate | `#272c33` | `--color-deep-slate` | Card backgrounds, button backgrounds for secondary actions |\n| Subtle Ash | `#191c21` | `--color-subtle-ash` | Secondary background color for body sections |\n| Muted Stone | `#211d0d` | `--color-muted-stone` | Text color for muted elements, borders on certain components |\n| Iron Gray | `#43454c` | `--color-iron-gray` | Button backgrounds, inset shadow on interactive elements |\n| Silver Mist | `#9ea0a9` | `--color-silver-mist` | Text color for secondary information, muted icons, disabled states |\n| Light Steel | `#d4d5d9` | `--color-light-steel` | Subtle body text color, borders |\n| Pure White | `#ffffff` | `--color-pure-white` | Primary text color, active states, badge backgrounds, clear button borders |\n| Ghostly Gray | `#f4f4f5` | `--color-ghostly-gray` | Hover states for t",
+    "id": "n17817686375595295",
+    "text": "# MasterClass — Style Reference\n# MasterClass — Style Reference\n> Midnight Stage Presence\n\n**Theme:** dark\n**Source:** https://www.masterclass.com\n**Category:** education / premium streaming\n**Origin:** Refero Styles (https://styles.refero.design/)\n\nMasterClass employs a dark, cinematic UI, reminiscent of a premium streaming platform. Dominant blacks and deep charcoals create a sophisticated environment, allowing vibrant accents to punctuate interactive elements and brand moments. Typography is bold and confident, commanding attention within the high-contrast setting. Component surfaces are subtle, often inset, maintaining a flat aesthetic that emphasizes content and celebrity figures over overt ornamentation.\n\n## Tokens — Colors\n\n| Name | Value | Token | Role |\n|------|-------|-------|------|\n| Pitch Black | `#000000` | `--color-pitch-black` | Primary background for footers and expansive content sections, subtle borders, text for badges |\n| Charcoal Canvas | `#222326` | `--color-charcoal-canvas` | Default page background, card backgrounds |\n| Graphite Base | `#0d0d0e` | `--color-graphite-base` | Background for subtle surface differentiation, text buttons, and darker borders |\n| Deep Slate | `#272c33` | `--color-deep-slate` | Card backgrounds, button backgrounds for secondary actions |\n| Subtle Ash | `#191c21` | `--color-subtle-ash` | Secondary background color for body sections |\n| Muted Stone | `#211d0d` | `--color-muted-stone` | Text color for muted elements, borders on certain components |\n| Iron Gray | `#43454c` | `--color-iron-gray` | Button backgrounds, inset shadow on interactive elements |\n| Silver Mist | `#9ea0a9` | `--color-silver-mist` | Text color for secondary information, muted icons, disabled states |\n| Light Steel | `#d4d5d9` | `--color-light-steel` | Subtle body text color, borders |\n| Pure White | `#ffffff` | `--color-pure-white` | Primary text color, active states, badge backgrounds, clear button borders |\n| Ghostly Gray | `#f4f4f5` | `--color-ghostly-gray` | Hover states for text and icons, borders for ghost buttons, light text |\n| Action Raspberry | `#e32652` | `--color-action-raspberry` | Primary action buttons, prominent icons — a vibrant pop against dark backgrounds for conversion |\n| Interactive Lime | `#dcff00` | `--color-interactive-lime` | Green action color for filled buttons, selected navigation states, and focused conversion moments. Use as a supporting accent, not as a status color |\n| Highlight Gold | `#eed37f` | `--color-highlight-gold` | Accent borders for interactive cards or highlighted content, decorative elements |\n| Subtle Cadet | `#596170` | `--color-subtle-cadet` | Background for small, less prominent interactive elements |\n\n## Tokens — Typography\n\n### Sohne — Primary typeface · `--font-sohne`\n- **Substitute:** Inter\n- **Weights:** 400, 600\n- **Sizes:** 8px, 12px, 14px, 16px, 20px, 22px, 24px, 32px, 48px\n- **Line height:** 1.00, 1.25, 1.33, 1.45, 1.50, 1.60, 2.50\n- **Role:** Body text, navigation, links, buttons, headings up to 48px.\n\n### Sohne Schmal — Display typeface · `--font-sohne-schmal`\n- **Substitute:** Oswald or Anton\n- **Weights:** 500\n- **Sizes:** 64px, 80px\n- **Line height:** 0.85, 0.90\n- **Role:** Monumental headlines with tight letter-spacing for dramatic effect.\n\n### Ivar Display Condensed — Serif accent · `--font-ivar-display-condensed`\n- **Substitute:** Playfair Display SC or IBM Plex Serif\n- **Weights:** 400\n- **Sizes:** 64px\n- **Line height:** 1.10\n- **Role:** Classic authority accent for select feature titles.\n\n### Type Scale\n\n| Role | Size | Line Height | Token |\n|------|------|-------------|-------|\n| caption | 12px | 1.45 | `--text-caption` |\n| body-sm | 14px | 1.45 | `--text-body-sm` |\n| body | 16px | 1.45 | `--text-body` |\n| body-lg | 20px | 1.45 | `--text-body-lg` |\n| heading-sm | 22px | 1.45 | `--text-heading-sm` |\n| heading | 24px | 1.3 | `--text-heading` |\n| heading-lg | 32px | 1.3 | `--text-heading-lg` |\n| display-sm | 48px | 1.3 | `--text-display-sm` |",
     "tags": [
       "color",
-      "subtle",
       "text",
+      "body",
+      "subtle",
       "borders",
-      "backgrounds",
-      "background"
+      "interactive"
     ],
-    "ts": 1781248538977
+    "ts": 1781768637559,
+    "category": "design",
+    "source": "me",
+    "verified": true
   },
   {
-    "id": "n17812485430497604",
-    "text": "[📄 DEVELOPMENT.md]\n# Development Notes\n\nSpec Kit is a toolkit for spec-driven development. At its core, it is a coordinated set of prompts, templates, scripts, and CLI/integration assets that define and deliver a spec-driven workflow for AI coding agents. This document is a starting point for people modifying Spec Kit itself, with a compact orientation to the key project documents and repository organization.\n\n**Essential project documents:**\n\n| Document                                                   | Role                                                                                  |\n| ---------------------------------------------------------- | ------------------------------------------------------------------------------------- |\n| [README.md](README.md)                                     | Primary user-facing overview of Spec Kit and its workflow.                            |\n| [DEVELOPMENT.md](DEVELOPMENT.md)                           | This document.                                                                        |\n| [spec-driven.md](spec-driven.md)                           | End-to-end explanation of the Spec-Driven Development workflow supported by Spec Kit. |\n| [RELEASE-PROCESS.md](.github/workflows/RELEASE-PROCESS.md) | Release workflow, versioning rules, and changelog generation process.                 |\n| [docs/index.md](docs/index.md)                             | Entry point to the `docs/` documentation set.                                         |\n| [CONTRIBUTING.md](CONTRIBUTING.md)                         | Contribution process, review expectations, testing, and required development practices. |\n\n**Main repository components:**\n\n| Directory          | Role                                                                                        |\n| ------------------ | ------------------------------------------------------------------------------------------- |\n| `templates/`       | Prompt assets and templates that define the core workflow behavior and",
+    "id": "n17817686375594272",
+    "text": "# Development Notes\n# Development Notes\n\nSpec Kit is a toolkit for spec-driven development. At its core, it is a coordinated set of prompts, templates, scripts, and CLI/integration assets that define and deliver a spec-driven workflow for AI coding agents. This document is a starting point for people modifying Spec Kit itself, with a compact orientation to the key project documents and repository organization.\n\n**Essential project documents:**\n\n| Document                                                   | Role                                                                                  |\n| ---------------------------------------------------------- | ------------------------------------------------------------------------------------- |\n| [README.md](README.md)                                     | Primary user-facing overview of Spec Kit and its workflow.                            |\n| [DEVELOPMENT.md](DEVELOPMENT.md)                           | This document.                                                                        |\n| [spec-driven.md](spec-driven.md)                           | End-to-end explanation of the Spec-Driven Development workflow supported by Spec Kit. |\n| [RELEASE-PROCESS.md](.github/workflows/RELEASE-PROCESS.md) | Release workflow, versioning rules, and changelog generation process.                 |\n| [docs/index.md](docs/index.md)                             | Entry point to the `docs/` documentation set.                                         |\n| [CONTRIBUTING.md](CONTRIBUTING.md)                         | Contribution process, review expectations, testing, and required development practices. |\n\n**Main repository components:**\n\n| Directory          | Role                                                                                        |\n| ------------------ | ------------------------------------------------------------------------------------------- |\n| `templates/`       | Prompt assets and templates that define the core workflow behavior and generated artifacts. |\n| `scripts/`         | Supporting scripts used by the workflow, setup, and repository tooling.                     |\n| `src/specify_cli/` | Python source for the `specify` CLI, including agent-specific assets.                       |\n| `extensions/`      | Extension-related docs, catalogs, and supporting assets.                                    |\n| `presets/`         | Preset-related docs, catalogs, and supporting assets.                                       |",
     "tags": [
       "spec",
       "development",
-      "driven",
       "workflow",
-      "kit",
-      "process"
+      "driven",
+      "assets",
+      "docs"
     ],
-    "ts": 1781248539253
+    "ts": 1781768637560,
+    "category": "coding",
+    "source": "me",
+    "verified": true
   },
   {
-    "id": "n17812485430494426",
-    "text": "[📄 README.md]\n<div align=\"center\">\n    <img src=\"./media/logo_large.webp\" alt=\"Spec Kit Logo\" width=\"200\" height=\"200\"/>\n    <h1>🌱 Spec Kit</h1>\n    <h3><em>Build high-quality software faster.</em></h3>\n</div>\n\n<p align=\"center\">\n    <strong>An open source toolkit that allows you to focus on product scenarios and predictable outcomes instead of vibe coding every piece from scratch.</strong>\n</p>\n\n<p align=\"center\">\n    <a href=\"https://github.com/github/spec-kit/releases/latest\"><img src=\"https://img.shields.io/github/v/release/github/spec-kit\" alt=\"Latest Release\"/></a>\n    <a href=\"https://github.com/github/spec-kit/stargazers\"><img src=\"https://img.shields.io/github/stars/github/spec-kit?style=social\" alt=\"GitHub stars\"/></a>\n    <a href=\"https://github.com/github/spec-kit/blob/main/LICENSE\"><img src=\"https://img.shields.io/github/license/github/spec-kit\" alt=\"License\"/></a>\n    <a href=\"https://github.github.io/spec-kit/\"><img src=\"https://img.shields.io/badge/docs-GitHub_Pages-blue\" alt=\"Documentation\"/></a>\n</p>\n\n---\n\n## Table of Contents\n\n- [🤔 What is Spec-Driven Development?](#-what-is-spec-driven-development)\n- [⚡ Get Started](#-get-started)\n- [📽️ Video Overview](#️-video-overview)\n- [🌍 Community](#-community)\n- [🤖 Supported AI Coding Agent Integrations](#-supported-ai-coding-agent-integrations)\n- [🔧 Specify CLI Reference](#-specify-cli-reference)\n- [🧩 Making Spec Kit Your Own: Extensions & Presets](#-making-spec-kit-your-own-extensions--presets)\n- [📚 Core Philosophy](#-core-philosophy)\n- [🌟 Development Phases](#-development-phases)\n- [🎯 Experimental Goals](#-experimental-goals)\n- [🔧 Prerequisites](#-prerequisites)\n- [📖 Learn More](#-learn-more)\n- [📋 Detailed Process](#-detailed-process)\n- [💬 Support](#-support)\n- [🙏 Acknowledgements](#-acknowledgements)\n- [📄 License](#-license)\n\n## 🤔 What is Spec-Driven Development?\n\nSpec-Driven Development **flips the script** on traditional software development. For decades, code has been king — specifications were ju",
-    "tags": [
-      "github",
-      "spec",
-      "kit",
-      "img",
-      "https",
-      "development"
-    ],
-    "ts": 1781248539540
-  },
-  {
-    "id": "n17812485430492439",
-    "text": "[📄 SECURITY.md]\n# Security Policy\n\nThanks for helping make GitHub safe for everyone.\n\nGitHub takes the security of our software products and services seriously, including all of the open source code repositories managed through our GitHub organizations, such as [GitHub](https://github.com/GitHub).\n\nEven though [open source repositories are outside of the scope of our bug bounty program](https://bounty.github.com/index.html#scope) and therefore not eligible for bounty rewards, we will ensure that your finding gets passed along to the appropriate maintainers for remediation.\n\n## Reporting Security Issues\n\nIf you believe you have found a security vulnerability in any GitHub-owned repository, please report it to us through coordinated disclosure.\n\n**Please do not report security vulnerabilities through public GitHub issues, discussions, or pull requests.**\n\nInstead, please send an email to opensource-security[@]github.com.\n\nPlease include as much of the information listed below as you can to help us better understand and resolve the issue:\n\n- The type of issue (e.g., buffer overflow, SQL injection, or cross-site scripting)\n- Full paths of source file(s) related to the manifestation of the issue\n- The location of the affected source code (tag/branch/commit or direct URL)\n- Any special configuration required to reproduce the issue\n- Step-by-step instructions to reproduce the issue\n- Proof-of-concept or exploit code (if possible)\n- Impact of the issue, including how an attacker might exploit the issue\n\nThis information will help us triage your report more quickly.\n\n## Policy\n\nSee [GitHub's Safe Harbor Policy](https://docs.github.com/en/site-policy/security-policies/github-bug-bounty-program-legal-safe-harbor#1-safe-harbor-terms)",
-    "tags": [
-      "github",
-      "security",
-      "issue",
-      "policy",
-      "safe",
-      "source"
-    ],
-    "ts": 1781248539824
-  },
-  {
-    "id": "n17812485430499057",
-    "text": "[📄 SUPPORT.md]\n# Support\n\n## How to get help\n\nPlease search existing [issues](https://github.com/github/spec-kit/issues) and [discussions](https://github.com/github/spec-kit/discussions) before creating new ones to avoid duplicates.\n\n- Review the [README](./README.md) for getting started instructions and troubleshooting tips\n- Check the [comprehensive guide](./spec-driven.md) for detailed documentation on the Spec-Driven Development process\n- Ask in [GitHub Discussions](https://github.com/github/spec-kit/discussions) for questions about using Spec Kit or the Spec-Driven Development methodology\n- Open a [GitHub issue](https://github.com/github/spec-kit/issues/new) for bug reports and feature requests\n\n## Project Status\n\n**Spec Kit** is under active development and maintained by GitHub staff and the community. We will do our best to respond to support, feature requests, and community questions as time permits.\n\n## GitHub Support Policy\n\nSupport for this project is limited to the resources listed above.",
+    "id": "n17817686375605248",
+    "text": "# Support\n# Support\n\n## How to get help\n\nPlease search existing [issues](https://github.com/github/spec-kit/issues) and [discussions](https://github.com/github/spec-kit/discussions) before creating new ones to avoid duplicates.\n\n- Review the [README](./README.md) for getting started instructions and troubleshooting tips\n- Check the [comprehensive guide](./spec-driven.md) for detailed documentation on the Spec-Driven Development process\n- Ask in [GitHub Discussions](https://github.com/github/spec-kit/discussions) for questions about using Spec Kit or the Spec-Driven Development methodology\n- Open a [GitHub issue](https://github.com/github/spec-kit/issues/new) for bug reports and feature requests\n\n## Project Status\n\n**Spec Kit** is under active development and maintained by GitHub staff and the community. We will do our best to respond to support, feature requests, and community questions as time permits.\n\n## GitHub Support Policy\n\nSupport for this project is limited to the resources listed above.",
     "tags": [
       "github",
       "spec",
@@ -114,136 +58,89 @@
       "https",
       "com"
     ],
-    "ts": 1781248540104
+    "ts": 1781768637560,
+    "category": "coding",
+    "source": "me",
+    "verified": true
   },
   {
-    "id": "n17812485430491698",
-    "text": "[📄 connect-ai/AGENTS.md]\n# AGENTS.md\n\n## About Spec Kit and Specify\n\n**GitHub Spec Kit** is a comprehensive toolkit for implementing Spec-Driven Development (SDD) - a methodology that emphasizes creating clear specifications before implementation. The toolkit includes templates, scripts, and workflows that guide development teams through a structured approach to building software.\n\n**Specify CLI** is the command-line interface that bootstraps projects with the Spec Kit framework. It sets up the necessary directory structures, templates, and AI agent integrations to support the Spec-Driven Development workflow.\n\nThe toolkit supports multiple AI coding assistants, allowing teams to use their preferred tools while maintaining consistent project structure and development practices.\n\n---\n\n## Integration Architecture\n\nEach AI agent is a self-contained **integration subpackage** under `src/specify_cli/integrations/<key>/`. The subpackage exposes a single class that declares all metadata and inherits setup/teardown logic from a base class. Built-in integrations are then instantiated and added to the global `INTEGRATION_REGISTRY` by `src/specify_cli/integrations/__init__.py` via `_register_builtins()`.\n\n```\nsrc/specify_cli/integrations/\n├── __init__.py            # INTEGRATION_REGISTRY + _register_builtins()\n├── base.py                # IntegrationBase, MarkdownIntegration, TomlIntegration, YamlIntegration, SkillsIntegration\n├── manifest.py            # IntegrationManifest (file tracking)\n├── claude/                # Example: SkillsIntegration subclass\n│   └── __init__.py        #   ClaudeIntegration class\n├── gemini/                # Example: TomlIntegration subclass\n│   └── __init__.py\n├── windsurf/              # Example: MarkdownIntegration subclass\n│   └── __init__.py\n├── copilot/               # Example: IntegrationBase subclass (custom setup)\n│   └── __init__.py\n└── ...                    # One subpackage per supported agent\n```\n\nThe registry is the **single source of truth for Python integra",
+    "id": "n17817686375601392",
+    "text": "# Specification-Driven Development (SDD)\n# Specification-Driven Development (SDD)\n\n## The Power Inversion\n\nFor decades, code has been king. Specifications served code—they were the scaffolding we built and then discarded once the \"real work\" of coding began. We wrote PRDs to guide development, created design docs to inform implementation, drew diagrams to visualize architecture. But these were always subordinate to the code itself. Code was truth. Everything else was, at best, good intentions. Code was the source of truth, and as it moved forward, specs rarely kept pace. As the asset (code) and the implementation are one, it's not easy to have a parallel implementation without trying to build from the code.\n\nSpec-Driven Development (SDD) inverts this power structure. Specifications don't serve code—code serves specifications. The Product Requirements Document (PRD) isn't a guide for implementation; it's the source that generates implementation. Technical plans aren't documents that inform coding; they're precise definitions that produce code. This isn't an incremental improvement to how we build software. It's a fundamental rethinking of what drives development.\n\nThe gap between specification and implementation has plagued software development since its inception. We've tried to bridge it with better documentation, more detailed requirements, stricter processes. These approaches fail because they accept the gap as inevitable. They try to narrow it but never eliminate it. SDD eliminates the gap by making specifications and their concrete implementation plans born from the specification executable. When specifications and implementation plans generate code, there is no gap—only transformation.\n\nThis transformation is now possible because AI can understand and implement complex specifications, and create detailed implementation plans. But raw AI generation without structure produces chaos. SDD provides that structure through specifications and subsequent implementation plans that are precise, complete, and unambiguous enough to generate working systems. The specification becomes the primary artifact. Code becomes its expression (as an implementation from the implementation plan) in a particular language and framework.\n\nIn this new world, maintaining software means evolving specifications. The intent of the development team is expressed in natural language (\"**intent-driven development**\"), design assets, core principles and other guidelines. The **lingua franca** of development moves to a higher level, and code is the last-mile approach.\n\nDebugging means fixing specifications and their implementation plans that generate incorrect code. Refactoring means restructuring for clarity. The entire development workflow reorganizes around specifications as the central source of truth, with implementation plans and code as the continuously regenerated output. Updating apps with new features or creating a new parallel implementation because we are creative beings, means revisiting the specification and creating new implementation plans. This process is therefore a 0 -> 1, (1', ..), 2, 3, N.\n\nThe development team focuses in on their creativity, experimentation, their critical thinking.\n\n## The SDD Workflow in Practice\n\nThe workflow begins with an idea—often vague and incomplete. Through iterative dialogue with AI, this idea becomes a comprehensive PRD. The AI asks clarifying questions, identifies edge cases, and helps define precise acceptance criteria. What might take days of meetings and documentation in traditional development happens in hours of focused specification work. This transforms the traditional SDLC—requirements and design become continuous activities rather than discrete phases. This is supportive of a **team process**, where team-reviewed specifications are expressed and versioned, created in branches, and merged.\n\nWhen a product manager updates acceptance criteria, implementation plans automatically flag affected technical d",
     "tags": [
-      "init",
-      "spec",
-      "specify",
-      "integrations",
-      "development",
-      "cli"
-    ],
-    "ts": 1781248540404
-  },
-  {
-    "id": "n17812485430502353",
-    "text": "[📄 connect-ai/CHANGELOG.md]\n# Changelog\n\n<!-- insert new changelog below this comment -->\n\n## [0.10.1] - 2026-06-09\n\n### Changed\n\n- Update DocGuard — CDD Enforcement extension to v0.25.1 (#2909)\n- Update a11y-governance preset to v0.3.0 (#2867)\n- docs: document spec persistence models (#2856)\n- chore(catalog): bump Linear Integration to v0.3.0 (repo renamed to spec-kit-linear-sync) (#2893)\n- chore: update DocGuard extension to v0.25.0 (#2707)\n- chore: remove unused open_github_url/_StripAuthOnRedirect from _github_http.py (#2883)\n- fix(catalogs): validate extension and preset catalog payload shape (#2621)\n- feat(integration): add status reporting (#2674)\n- chore: release 0.10.0, begin 0.10.1.dev0 development (#2904)\n\n## [0.10.0] - 2026-06-09\n\n### Changed\n\n- feat: make git extension opt-in and remove --no-git at v0.10.0 (#2873)\n- [Preset] UpdateFiction book writing v1.9.0 - Illustration support (#2821)\n- test(workflows): cover executable override fallback preflight (#2843)\n- Add GitHub Copilot CLI guidance to readme (#2891)\n- Update Security Review extension to v1.5.3 (#2898)\n- Update Architecture Guard extension to v1.8.17 (#2897)\n- feat(extensions): per-event hook lists with priority ordering (#2798)\n- feat!: remove legacy --ai, --ai-commands-dir, and --ai-skills flags (0.10.0) (#2872)\n- chore: release 0.9.5, begin 0.9.6.dev0 development (#2875)\n\n## [0.9.5] - 2026-06-05\n\n### Changed\n\n- feat(extensions): add bundled bug triage workflow extension (#2871)\n- fix: resolve GitHub release asset API URL for private repo preset and workflow downloads (#2855)\n- chore(deps): bump github/gh-aw-actions from 0.77.0 to 0.78.1 (#2860)\n- chore(deps): bump actions/checkout from 6.0.2 to 6.0.3 (#2859)\n- chore(deps): bump astral-sh/setup-uv from 8.1.0 to 8.2.0 (#2858)\n- chore(deps): bump github/codeql-action from 4.36.0 to 4.36.2 (#2857)\n- fix(workflows): render gate show_file contents in the interactive prompt (#2810)\n- feat: add support for rovodev (#2539)\n- chore: release 0.9.4, begin 0.9.5.dev0 development (",
-    "tags": [
-      "chore",
-      "extension",
-      "github",
-      "feat",
-      "update",
-      "bump"
-    ],
-    "ts": 1781248540708
-  },
-  {
-    "id": "n17812485430504753",
-    "text": "[📄 connect-ai/CODE_OF_CONDUCT.md]\n# Contributor Covenant Code of Conduct\n\n## Our Pledge\n\nIn the interest of fostering an open and welcoming environment, we as\ncontributors and maintainers pledge to making participation in our project and\nour community a harassment-free experience for everyone, regardless of age, body\nsize, disability, ethnicity, gender identity and expression, level of experience,\nnationality, personal appearance, race, religion, or sexual identity and\norientation.\n\n## Our Standards\n\nExamples of behavior that contributes to creating a positive environment\ninclude:\n\n- Using welcoming and inclusive language\n- Being respectful of differing viewpoints and experiences\n- Gracefully accepting constructive criticism\n- Focusing on what is best for the community\n- Showing empathy towards other community members\n\nExamples of unacceptable behavior by participants include:\n\n- The use of sexualized language or imagery and unwelcome sexual attention or\n  advances\n- Trolling, insulting/derogatory comments, and personal or political attacks\n- Public or private harassment\n- Publishing others' private information, such as a physical or electronic\n  address, without explicit permission\n- Other conduct which could reasonably be considered inappropriate in a\n  professional setting\n\n## Our Responsibilities\n\nProject maintainers are responsible for clarifying the standards of acceptable\nbehavior and are expected to take appropriate and fair corrective action in\nresponse to any instances of unacceptable behavior.\n\nProject maintainers have the right and responsibility to remove, edit, or\nreject comments, commits, code, wiki edits, issues, and other contributions\nthat are not aligned to this Code of Conduct, or to ban temporarily or\npermanently any contributor for other behaviors that they deem inappropriate,\nthreatening, offensive, or harmful.\n\n## Scope\n\nThis Code of Conduct applies both within project spaces and in public spaces\nwhen an individual is representing the project or its community. Examples of\nrep",
-    "tags": [
-      "code",
-      "conduct",
-      "our",
-      "project",
-      "community",
-      "behavior"
-    ],
-    "ts": 1781248540970
-  },
-  {
-    "id": "n17812485430509970",
-    "text": "[📄 connect-ai/CONTRIBUTING.md]\n# Contributing to Spec Kit\n\nHi there! We're thrilled that you'd like to contribute to Spec Kit. Contributions to this project are [released](https://help.github.com/articles/github-terms-of-service/#6-contributions-under-repository-license) to the public under the [project's open source license](LICENSE).\n\nPlease note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.\n\n## Prerequisites for running and testing code\n\nThese are one time installations required to be able to test your changes locally as part of the pull request (PR) submission process.\n\n1. Install [Python 3.11+](https://www.python.org/downloads/)\n1. Install [uv](https://docs.astral.sh/uv/) for package management\n1. Install [Git](https://git-scm.com/downloads)\n1. Have an [AI coding agent available](README.md#-supported-ai-coding-agent-integrations)\n\n<details>\n<summary><b>💡 Hint if you are using <code>VSCode</code> or <code>GitHub Codespaces</code> as your IDE</b></summary>\n\n<br>\n\nProvided you have [Docker](https://docker.com) installed on your machine, you can leverage [Dev Containers](https://containers.dev) through this [VSCode extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers), to easily set up your development environment, with aforementioned tools already installed and configured, thanks to the `.devcontainer/devcontainer.json` file (located at the root of the project).\n\nTo do so, simply:\n\n- Checkout the repo\n- Open it with VSCode\n- Open the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) and select \"Dev Containers: Open Folder in Container...\"\n\nOn [GitHub Codespaces](https://github.com/features/codespaces) it's even simpler, as it leverages the `.devcontainer/devcontainer.json` automatically upon opening the codespace.\n\n</details>\n\n## Submitting a pull request\n\n> [!NOTE]\n> If your pull request introduce",
-    "tags": [
-      "https",
-      "code",
-      "com",
-      "you",
-      "project",
-      "github"
-    ],
-    "ts": 1781248541263
-  },
-  {
-    "id": "n17812485430505505",
-    "text": "[📄 connect-ai/DEVELOPMENT.md]\n# Development Notes\n\nSpec Kit is a toolkit for spec-driven development. At its core, it is a coordinated set of prompts, templates, scripts, and CLI/integration assets that define and deliver a spec-driven workflow for AI coding agents. This document is a starting point for people modifying Spec Kit itself, with a compact orientation to the key project documents and repository organization.\n\n**Essential project documents:**\n\n| Document                                                   | Role                                                                                  |\n| ---------------------------------------------------------- | ------------------------------------------------------------------------------------- |\n| [README.md](README.md)                                     | Primary user-facing overview of Spec Kit and its workflow.                            |\n| [DEVELOPMENT.md](DEVELOPMENT.md)                           | This document.                                                                        |\n| [spec-driven.md](spec-driven.md)                           | End-to-end explanation of the Spec-Driven Development workflow supported by Spec Kit. |\n| [RELEASE-PROCESS.md](.github/workflows/RELEASE-PROCESS.md) | Release workflow, versioning rules, and changelog generation process.                 |\n| [docs/index.md](docs/index.md)                             | Entry point to the `docs/` documentation set.                                         |\n| [CONTRIBUTING.md](CONTRIBUTING.md)                         | Contribution process, review expectations, testing, and required development practices. |\n\n**Main repository components:**\n\n| Directory          | Role                                                                                        |\n| ------------------ | ------------------------------------------------------------------------------------------- |\n| `templates/`       | Prompt assets and templates that define the core workflow behavior and",
-    "tags": [
-      "spec",
-      "development",
-      "driven",
-      "workflow",
-      "kit",
-      "process"
-    ],
-    "ts": 1781248541593
-  },
-  {
-    "id": "n17812485430518016",
-    "text": "[📄 connect-ai/README.md]\n<div align=\"center\">\n    <img src=\"./media/logo_large.webp\" alt=\"Spec Kit Logo\" width=\"200\" height=\"200\"/>\n    <h1>🌱 Spec Kit</h1>\n    <h3><em>Build high-quality software faster.</em></h3>\n</div>\n\n<p align=\"center\">\n    <strong>An open source toolkit that allows you to focus on product scenarios and predictable outcomes instead of vibe coding every piece from scratch.</strong>\n</p>\n\n<p align=\"center\">\n    <a href=\"https://github.com/github/spec-kit/releases/latest\"><img src=\"https://img.shields.io/github/v/release/github/spec-kit\" alt=\"Latest Release\"/></a>\n    <a href=\"https://github.com/github/spec-kit/stargazers\"><img src=\"https://img.shields.io/github/stars/github/spec-kit?style=social\" alt=\"GitHub stars\"/></a>\n    <a href=\"https://github.com/github/spec-kit/blob/main/LICENSE\"><img src=\"https://img.shields.io/github/license/github/spec-kit\" alt=\"License\"/></a>\n    <a href=\"https://github.github.io/spec-kit/\"><img src=\"https://img.shields.io/badge/docs-GitHub_Pages-blue\" alt=\"Documentation\"/></a>\n</p>\n\n---\n\n## Table of Contents\n\n- [🤔 What is Spec-Driven Development?](#-what-is-spec-driven-development)\n- [⚡ Get Started](#-get-started)\n- [📽️ Video Overview](#️-video-overview)\n- [🌍 Community](#-community)\n- [🤖 Supported AI Coding Agent Integrations](#-supported-ai-coding-agent-integrations)\n- [🔧 Specify CLI Reference](#-specify-cli-reference)\n- [🧩 Making Spec Kit Your Own: Extensions & Presets](#-making-spec-kit-your-own-extensions--presets)\n- [📚 Core Philosophy](#-core-philosophy)\n- [🌟 Development Phases](#-development-phases)\n- [🎯 Experimental Goals](#-experimental-goals)\n- [🔧 Prerequisites](#-prerequisites)\n- [📖 Learn More](#-learn-more)\n- [📋 Detailed Process](#-detailed-process)\n- [💬 Support](#-support)\n- [🙏 Acknowledgements](#-acknowledgements)\n- [📄 License](#-license)\n\n## 🤔 What is Spec-Driven Development?\n\nSpec-Driven Development **flips the script** on traditional software development. For decades, code has been king — specifications were ju",
-    "tags": [
-      "github",
-      "spec",
-      "kit",
-      "img",
-      "https",
-      "development"
-    ],
-    "ts": 1781248541910
-  },
-  {
-    "id": "n17812485430515991",
-    "text": "[📄 connect-ai/SECURITY.md]\n# Security Policy\n\nThanks for helping make GitHub safe for everyone.\n\nGitHub takes the security of our software products and services seriously, including all of the open source code repositories managed through our GitHub organizations, such as [GitHub](https://github.com/GitHub).\n\nEven though [open source repositories are outside of the scope of our bug bounty program](https://bounty.github.com/index.html#scope) and therefore not eligible for bounty rewards, we will ensure that your finding gets passed along to the appropriate maintainers for remediation.\n\n## Reporting Security Issues\n\nIf you believe you have found a security vulnerability in any GitHub-owned repository, please report it to us through coordinated disclosure.\n\n**Please do not report security vulnerabilities through public GitHub issues, discussions, or pull requests.**\n\nInstead, please send an email to opensource-security[@]github.com.\n\nPlease include as much of the information listed below as you can to help us better understand and resolve the issue:\n\n- The type of issue (e.g., buffer overflow, SQL injection, or cross-site scripting)\n- Full paths of source file(s) related to the manifestation of the issue\n- The location of the affected source code (tag/branch/commit or direct URL)\n- Any special configuration required to reproduce the issue\n- Step-by-step instructions to reproduce the issue\n- Proof-of-concept or exploit code (if possible)\n- Impact of the issue, including how an attacker might exploit the issue\n\nThis information will help us triage your report more quickly.\n\n## Policy\n\nSee [GitHub's Safe Harbor Policy](https://docs.github.com/en/site-policy/security-policies/github-bug-bounty-program-legal-safe-harbor#1-safe-harbor-terms)",
-    "tags": [
-      "github",
-      "security",
-      "issue",
-      "policy",
-      "safe",
-      "source"
-    ],
-    "ts": 1781248542204
-  },
-  {
-    "id": "n17812485430528372",
-    "text": "[📄 connect-ai/SUPPORT.md]\n# Support\n\n## How to get help\n\nPlease search existing [issues](https://github.com/github/spec-kit/issues) and [discussions](https://github.com/github/spec-kit/discussions) before creating new ones to avoid duplicates.\n\n- Review the [README](./README.md) for getting started instructions and troubleshooting tips\n- Check the [comprehensive guide](./spec-driven.md) for detailed documentation on the Spec-Driven Development process\n- Ask in [GitHub Discussions](https://github.com/github/spec-kit/discussions) for questions about using Spec Kit or the Spec-Driven Development methodology\n- Open a [GitHub issue](https://github.com/github/spec-kit/issues/new) for bug reports and feature requests\n\n## Project Status\n\n**Spec Kit** is under active development and maintained by GitHub staff and the community. We will do our best to respond to support, feature requests, and community questions as time permits.\n\n## GitHub Support Policy\n\nSupport for this project is limited to the resources listed above.",
-    "tags": [
-      "github",
-      "spec",
-      "kit",
-      "support",
-      "https",
-      "com"
-    ],
-    "ts": 1781248542479
-  },
-  {
-    "id": "n17812485430526418",
-    "text": "[📄 connect-ai/spec-driven.md]\n# Specification-Driven Development (SDD)\n\n## The Power Inversion\n\nFor decades, code has been king. Specifications served code—they were the scaffolding we built and then discarded once the \"real work\" of coding began. We wrote PRDs to guide development, created design docs to inform implementation, drew diagrams to visualize architecture. But these were always subordinate to the code itself. Code was truth. Everything else was, at best, good intentions. Code was the source of truth, and as it moved forward, specs rarely kept pace. As the asset (code) and the implementation are one, it's not easy to have a parallel implementation without trying to build from the code.\n\nSpec-Driven Development (SDD) inverts this power structure. Specifications don't serve code—code serves specifications. The Product Requirements Document (PRD) isn't a guide for implementation; it's the source that generates implementation. Technical plans aren't documents that inform coding; they're precise definitions that produce code. This isn't an incremental improvement to how we build software. It's a fundamental rethinking of what drives development.\n\nThe gap between specification and implementation has plagued software development since its inception. We've tried to bridge it with better documentation, more detailed requirements, stricter processes. These approaches fail because they accept the gap as inevitable. They try to narrow it but never eliminate it. SDD eliminates the gap by making specifications and their concrete implementation plans born from the specification executable. When specifications and implementation plans generate code, there is no gap—only transformation.\n\nThis transformation is now possible because AI can understand and implement complex specifications, and create detailed implementation plans. But raw AI generation without structure produces chaos. SDD provides that structure through specifications and subsequent implementation plans that are precise, complete, and un",
-    "tags": [
-      "code",
       "implementation",
-      "specifications",
+      "code",
       "development",
+      "specifications",
       "plans",
-      "sdd"
+      "specification"
     ],
-    "ts": 1781248542757
+    "ts": 1781768637560,
+    "category": "coding",
+    "source": "me",
+    "verified": true
   },
   {
-    "id": "n1781248543052758",
-    "text": "[📄 spec-driven.md]\n# Specification-Driven Development (SDD)\n\n## The Power Inversion\n\nFor decades, code has been king. Specifications served code—they were the scaffolding we built and then discarded once the \"real work\" of coding began. We wrote PRDs to guide development, created design docs to inform implementation, drew diagrams to visualize architecture. But these were always subordinate to the code itself. Code was truth. Everything else was, at best, good intentions. Code was the source of truth, and as it moved forward, specs rarely kept pace. As the asset (code) and the implementation are one, it's not easy to have a parallel implementation without trying to build from the code.\n\nSpec-Driven Development (SDD) inverts this power structure. Specifications don't serve code—code serves specifications. The Product Requirements Document (PRD) isn't a guide for implementation; it's the source that generates implementation. Technical plans aren't documents that inform coding; they're precise definitions that produce code. This isn't an incremental improvement to how we build software. It's a fundamental rethinking of what drives development.\n\nThe gap between specification and implementation has plagued software development since its inception. We've tried to bridge it with better documentation, more detailed requirements, stricter processes. These approaches fail because they accept the gap as inevitable. They try to narrow it but never eliminate it. SDD eliminates the gap by making specifications and their concrete implementation plans born from the specification executable. When specifications and implementation plans generate code, there is no gap—only transformation.\n\nThis transformation is now possible because AI can understand and implement complex specifications, and create detailed implementation plans. But raw AI generation without structure produces chaos. SDD provides that structure through specifications and subsequent implementation plans that are precise, complete, and un",
+    "id": "n17817936684224139",
+    "text": "# 보랏빛 소가 온다 (Purple Cow)\n# 보랏빛 소가 온다 (Purple Cow) — 마케팅 완전 정리\n\n세스 고딘(Seth Godin)의 마케팅 고전. 한 문장: \"평범하면 보이지 않는다. 주목할 만하게(remarkable) 만들어라.\"\n\n## 1. 보랏빛 소 = 리마커블\n- 평범한 소 수백 마리는 안 보인다. 보랏빛 소는 누구나 멈춰서 보고 친구에게 말한다.\n- 리마커블 = \"remark(언급)할 만한\". 마케팅의 핵심은 광고 기술이 아니라 제품 자체가 주목할 만한가다.\n- 리마커블의 반대말은 \"나쁨\"이 아니라 \"매우 좋음(very good)\". 무난하고 안전한 것은 보이지 않는다.\n\n## 2. 옛 마케팅의 죽음 — TV·산업 복합체\n- 평범한 제품 + 막대한 광고비 = 매출, 이 공식이 무너졌다.\n- 사람들은 광고를 무시하는 법을 배웠다. 광고로 평범한 제품을 구할 수 없다.\n- 마케팅을 제품 끝에 덧붙이지 말고, 제품 안에 내장하라.\n\n## 3. 새로운 P — Purple Cow\n- 전통 마케팅 P(Product/Price/Promotion/Positioning…)에 'Purple Cow'를 더하라.\n- 기획 첫 단계부터 \"이게 왜 입소문 날까?\"를 설계에 넣어라.\n\n## 4. 누구에게 — 오타쿠(Otaku)\n- 모두를 만족시키려는 제품은 아무도 주목하지 않는다.\n- 오타쿠 = 어떤 것에 비정상적으로 열광하는 소수. 돈·시간을 쓰고 남에게 떠든다.\n- 미지근한 다수보다 열광하는 소수를 노려라. 그들이 시장을 연다.\n\n## 5. 어떻게 퍼지나 — 스니저(Sneezer)와 아이디어 바이러스\n- 스니저 = 아이디어를 재채기하듯 퍼뜨리는 전파자. 입소문의 핵심.\n- 리마커블한 것만 전파된다. 평범한 건 아무도 친구에게 말하지 않는다.\n- 광고비 대신, 스니저가 자발적으로 퍼뜨릴 이유를 제품에 심어라. 퍼뜨리기 쉽게 만들어라.\n\n## 6. 얼리어답터와 캐즘\n- 대중을 직접 노리지 마라. 얼리어답터를 노리고 그들이 다수에게 전파하게 하라.\n- 리마커블하지 않으면 얼리어답터와 다수 사이 캐즘(간극)을 못 넘고 사라진다.\n\n## 7. 극단으로, 가장자리로\n- 시장 한가운데(중간 품질·가격·무난함)는 가장 붐비고 가장 안 보인다.\n- 한 축에서 극단으로: 가장 빠른/싼/고급/단순한/전문적인. 어중간함이 가장 위험하다.\n\n## 8. 두려움이 평범함을 만든다\n- 리마커블하지 못하는 이유는 비판·실패가 두려워서. 안전한 길을 택하면 보이지 않게 된다 = 진짜 실패.\n- 일부에게 비판받는다는 건 누군가는 강하게 주목한다는 신호다.\n\n## 9. 모두를 위한 게 아니다 — 일부러 배제하라\n- \"이건 당신을 위한 게 아닙니다\"라고 말할 수 있어야 진짜 팬이 생긴다.\n- 타깃을 좁히고 배제할수록 남은 사람들의 충성·전파력이 커진다.\n\n## 10. 실제 사례 (책 속)\n- 크리스피 크림(갓 구운 도넛 경험), 제트블루(위트·디자인), 스타벅스(제3의 공간), 더치보이 페인트(비틀어 따는 용기), 에어론 체어(지위의 상징).\n- 공통점: 광고가 아니라 제품·경험·디자인에 리마커블함을 내장.\n\n## 11. 측정하고 반복하라\n- 리마커블은 운이 아니라 과정. 작게 시도→측정→통하면 키우기.\n- 보랏빛 소도 시간이 지나면 평범해진다 → 계속 새 보랏빛 소를 만들어라.\n\n## 12. 유튜브·콘텐츠 적용\n- 썸네일·제목·도입부 3초가 보랏빛 소여야 한다. 무난하면 스크롤된다.\n- 모두가 좋아할 안전한 주제보다 특정 시청자가 열광할 뾰족한 관점을.\n- 영상마다 \"이거 봐!\" 하고 공유할 단 하나의 훅을 심어라. 바이럴은 설계다.\n\n## 13. 1인 기업 적용\n- 내 서비스가 \"또 하나의 비슷한 것\"이면 마케팅으로 못 살린다. 제품을 먼저 리마커블하게.\n- 작게 시작하되 한 축에서 극단적으로 달라라. 첫 고객을 열광하는 팬으로 → 무료 영업사원(스니저)이 된다.\n- 안전하게 가려는 본능을 의심하라. 가장 안전한 선택이 보통 가장 안 보이는 선택이다.\n\n## 한 줄 요약\n평범하면 안 보인다. 제품을 리마커블하게 만들고, 그것에 열광할 오타쿠를 노려라. 그들이 스니저가 되어 퍼뜨린다. 모두를 위하지 말고, 가장자리를 점령하라. 안전함이 가장 위험하다.",
     "tags": [
-      "code",
-      "implementation",
-      "specifications",
-      "development",
-      "plans",
-      "sdd"
+      "보랏빛",
+      "가장",
+      "제품",
+      "purple",
+      "cow",
+      "않는다"
     ],
-    "ts": 1781248543044
+    "ts": 1781793668422,
+    "category": "marketing",
+    "source": "ezerai",
+    "verified": true
+  },
+  {
+    "id": "n17817936684235638",
+    "text": "# 보랏빛 소가 온다 (Purple Cow)\n# 보랏빛 소가 온다 (Purple Cow) — 마케팅 완전 정리\n\n세스 고딘(Seth Godin)의 마케팅 고전. 한 문장: \"평범하면 보이지 않는다. 주목할 만하게(remarkable) 만들어라.\"\n\n## 1. 보랏빛 소 = 리마커블\n- 평범한 소 수백 마리는 안 보인다. 보랏빛 소는 누구나 멈춰서 보고 친구에게 말한다.\n- 리마커블 = \"remark(언급)할 만한\". 마케팅의 핵심은 광고 기술이 아니라 제품 자체가 주목할 만한가다.\n- 리마커블의 반대말은 \"나쁨\"이 아니라 \"매우 좋음(very good)\". 무난하고 안전한 것은 보이지 않는다.\n\n## 2. 옛 마케팅의 죽음 — TV·산업 복합체\n- 평범한 제품 + 막대한 광고비 = 매출, 이 공식이 무너졌다.\n- 사람들은 광고를 무시하는 법을 배웠다. 광고로 평범한 제품을 구할 수 없다.\n- 마케팅을 제품 끝에 덧붙이지 말고, 제품 안에 내장하라.\n\n## 3. 새로운 P — Purple Cow\n- 전통 마케팅 P(Product/Price/Promotion/Positioning…)에 'Purple Cow'를 더하라.\n- 기획 첫 단계부터 \"이게 왜 입소문 날까?\"를 설계에 넣어라.\n\n## 4. 누구에게 — 오타쿠(Otaku)\n- 모두를 만족시키려는 제품은 아무도 주목하지 않는다.\n- 오타쿠 = 어떤 것에 비정상적으로 열광하는 소수. 돈·시간을 쓰고 남에게 떠든다.\n- 미지근한 다수보다 열광하는 소수를 노려라. 그들이 시장을 연다.\n\n## 5. 어떻게 퍼지나 — 스니저(Sneezer)와 아이디어 바이러스\n- 스니저 = 아이디어를 재채기하듯 퍼뜨리는 전파자. 입소문의 핵심.\n- 리마커블한 것만 전파된다. 평범한 건 아무도 친구에게 말하지 않는다.\n- 광고비 대신, 스니저가 자발적으로 퍼뜨릴 이유를 제품에 심어라. 퍼뜨리기 쉽게 만들어라.\n\n## 6. 얼리어답터와 캐즘\n- 대중을 직접 노리지 마라. 얼리어답터를 노리고 그들이 다수에게 전파하게 하라.\n- 리마커블하지 않으면 얼리어답터와 다수 사이 캐즘(간극)을 못 넘고 사라진다.\n\n## 7. 극단으로, 가장자리로\n- 시장 한가운데(중간 품질·가격·무난함)는 가장 붐비고 가장 안 보인다.\n- 한 축에서 극단으로: 가장 빠른/싼/고급/단순한/전문적인. 어중간함이 가장 위험하다.\n\n## 8. 두려움이 평범함을 만든다\n- 리마커블하지 못하는 이유는 비판·실패가 두려워서. 안전한 길을 택하면 보이지 않게 된다 = 진짜 실패.\n- 일부에게 비판받는다는 건 누군가는 강하게 주목한다는 신호다.\n\n## 9. 모두를 위한 게 아니다 — 일부러 배제하라\n- \"이건 당신을 위한 게 아닙니다\"라고 말할 수 있어야 진짜 팬이 생긴다.\n- 타깃을 좁히고 배제할수록 남은 사람들의 충성·전파력이 커진다.\n\n## 10. 실제 사례 (책 속)\n- 크리스피 크림(갓 구운 도넛 경험), 제트블루(위트·디자인), 스타벅스(제3의 공간), 더치보이 페인트(비틀어 따는 용기), 에어론 체어(지위의 상징).\n- 공통점: 광고가 아니라 제품·경험·디자인에 리마커블함을 내장.\n\n## 11. 측정하고 반복하라\n- 리마커블은 운이 아니라 과정. 작게 시도→측정→통하면 키우기.\n- 보랏빛 소도 시간이 지나면 평범해진다 → 계속 새 보랏빛 소를 만들어라.\n\n## 12. 유튜브·콘텐츠 적용\n- 썸네일·제목·도입부 3초가 보랏빛 소여야 한다. 무난하면 스크롤된다.\n- 모두가 좋아할 안전한 주제보다 특정 시청자가 열광할 뾰족한 관점을.\n- 영상마다 \"이거 봐!\" 하고 공유할 단 하나의 훅을 심어라. 바이럴은 설계다.\n\n## 13. 1인 기업 적용\n- 내 서비스가 \"또 하나의 비슷한 것\"이면 마케팅으로 못 살린다. 제품을 먼저 리마커블하게.\n- 작게 시작하되 한 축에서 극단적으로 달라라. 첫 고객을 열광하는 팬으로 → 무료 영업사원(스니저)이 된다.\n- 안전하게 가려는 본능을 의심하라. 가장 안전한 선택이 보통 가장 안 보이는 선택이다.\n\n## 한 줄 요약\n평범하면 안 보인다. 제품을 리마커블하게 만들고, 그것에 열광할 오타쿠를 노려라. 그들이 스니저가 되어 퍼뜨린다. 모두를 위하지 말고, 가장자리를 점령하라. 안전함이 가장 위험하다.",
+    "tags": [
+      "보랏빛",
+      "가장",
+      "제품",
+      "purple",
+      "cow",
+      "않는다"
+    ],
+    "ts": 1781793668423,
+    "category": "marketing",
+    "source": "ezerai",
+    "verified": true
+  },
+  {
+    "id": "n17817936790602521",
+    "text": "# MrBeast 후킹 로직\n# MrBeast 후킹 로직 분석\n\n## 핵심 패턴\n- **첫 5초**: 충격적 행동·결과 미리보기 (\"우리는 이 사람에게 100만 달러를 줬어요...\")\n- **5~30초**: 위기 설정·이해관계 명시 (\"...하지만 조건이 있죠.\")\n- **고밀도 컷**: 평균 1.5초당 1컷, 시선 못 떼게\n- **숫자 강조**: 항상 구체적 수치 (\"100만 달러\", \"24시간\", \"7명\")\n\n## 적용 체크리스트\n- [ ] 첫 5초에 결과 미리보기 있나?\n- [ ] 시청자가 \"이게 진짜?\" 의심하게 만드나?\n- [ ] 30초 안에 위기·이해관계 명확한가?\n- [ ] 컷 평균 길이가 2초 이하인가?",
+    "tags": [
+      "100",
+      "mrbeast",
+      "후킹",
+      "로직",
+      "결과",
+      "미리보기"
+    ],
+    "ts": 1781793679060,
+    "category": "marketing",
+    "source": "ezerai",
+    "verified": true
+  },
+  {
+    "id": "n17817937140542594",
+    "text": "# 스킬: 🎬 후킹 분석기\n본인 채널 최근 영상의 첫 30초 후킹 패턴을 자동 분석.\n실행 가능한 파이썬 스킬: <run>python3 \"C:\\Users\\gusdn\\AXIOS AI\\axios-ai-packs\\스킬\\youtube\\hook_analyzer.py\"</run>",
+    "tags": [
+      "스킬",
+      "후킹",
+      "run",
+      "axios",
+      "분석기",
+      "본인"
+    ],
+    "ts": 1781793714054,
+    "category": "marketing",
+    "source": "ezerai",
+    "verified": true
   }
 ]
