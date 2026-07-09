@@ -494,5 +494,21 @@
     "category": "marketing",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17836266892682579",
+    "text": "[운영 2026-07-09 사이클#102] CEO: 에이전트가 도출한 최종 마케팅 메시지(선정된 1개)와 서비스 개선 방향에 대해 최종적인 사업적 판단을 내리고",
+    "tags": [
+      "102",
+      "2026",
+      "운영",
+      "사이클",
+      "ceo",
+      "에이전트가"
+    ],
+    "ts": 1783626689268,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
