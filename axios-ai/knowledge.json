@@ -174,5 +174,21 @@
     "category": "business",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17836067902935203",
+    "text": "[운영 2026-07-09 사이클#42] 레오: 지난달 인기 영상 분석 후 후속 기획안 3개 작성",
+    "tags": [
+      "2026",
+      "운영",
+      "사이클",
+      "레오",
+      "지난달",
+      "인기"
+    ],
+    "ts": 1783606790293,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
