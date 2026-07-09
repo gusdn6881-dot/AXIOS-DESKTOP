@@ -350,5 +350,21 @@
     "category": "marketing",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n1783617773696271",
+    "text": "[운영 2026-07-09 사이클#75] CEO: 사람이 해야 잘되는 행동: 에이전트가 도출한 마케팅 메시지와 서비스 개선 방향 초안에 대해 최종적인 사업적",
+    "tags": [
+      "2026",
+      "운영",
+      "사이클",
+      "ceo",
+      "사람이",
+      "해야"
+    ],
+    "ts": 1783617773696,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
