@@ -254,5 +254,21 @@
     "category": "marketing",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17836131375418385",
+    "text": "[운영 2026-07-09 사이클#61] CEO: 도출된 서비스 개선 방향과 마케팅 초안에 대해 최종적인 사업적 판단 및 다음 스프린트 로드맵 승인",
+    "tags": [
+      "2026",
+      "운영",
+      "사이클",
+      "ceo",
+      "도출된",
+      "서비스"
+    ],
+    "ts": 1783613137541,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
