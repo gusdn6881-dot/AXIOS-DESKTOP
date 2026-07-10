@@ -1054,5 +1054,21 @@
     "category": "marketing",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17836651223321178",
+    "text": "[운영 2026-07-10 사이클#219] Researcher: 에이전트가 지난 피드백([운영 2026-07-10 사이클#212])을 기반으로 최종 마케팅 메시지 및 숏폼",
+    "tags": [
+      "2026",
+      "운영",
+      "사이클",
+      "212",
+      "219",
+      "researcher"
+    ],
+    "ts": 1783665122332,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
