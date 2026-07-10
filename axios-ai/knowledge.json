@@ -1598,5 +1598,53 @@
     "category": "marketing",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17836991106594353",
+    "text": "[운영 2026-07-10 사이클#322] Researcher: 'AXIOS UNIVERSTY' 반응률이 가장 높을 것으로 예상되는 마케팅 주제 3가지와 해당 데이터를 분석",
+    "tags": [
+      "322",
+      "2026",
+      "운영",
+      "사이클",
+      "researcher",
+      "axios"
+    ],
+    "ts": 1783699110659,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
+  },
+  {
+    "id": "n1783699454504685",
+    "text": "[운영 2026-07-10 사이클#323] Researcher: 지난 피드백(사이클#322) 기반으로 'AXIOS UNIVERSTY' 반응률이 가장 높을 것으로 예상되는 마 / 루나: Writer가 작성한 스크립트 초안을 기반으로, 도출된 후킹 포인트에 맞춰 영상의 시각적 구성(Visual",
+    "tags": [
+      "사이클",
+      "기반으로",
+      "322",
+      "323",
+      "2026",
+      "운영"
+    ],
+    "ts": 1783699454504,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
+  },
+  {
+    "id": "n17836997666581011",
+    "text": "[운영 2026-07-10 사이클#324] Researcher: 'AXIOS UNIVERSTY' 반응률 최적화 주제 3가지와 데이터를 분석하여 최종 우선순위를 도출 / 루나: 작성된 스크립트 초안의 영상 흐름 및 후킹 포인트를 기반으로 시각적 구성(Visual Flow) 피드백 제공",
+    "tags": [
+      "324",
+      "2026",
+      "운영",
+      "사이클",
+      "researcher",
+      "axios"
+    ],
+    "ts": 1783699766658,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
