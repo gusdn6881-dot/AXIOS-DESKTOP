@@ -1934,5 +1934,21 @@
     "category": "marketing",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17837107106269518",
+    "text": "[운영 2026-07-10 사이클#357] Researcher: 'AXIOS UNIVERSTY' 반응률 최적화 주제 3가지와 과거 피드백(Cycle #356)을 분석하여 다",
+    "tags": [
+      "356",
+      "357",
+      "2026",
+      "운영",
+      "사이클",
+      "researcher"
+    ],
+    "ts": 1783710710627,
+    "category": "general",
+    "source": "agent",
+    "verified": true
   }
 ]
