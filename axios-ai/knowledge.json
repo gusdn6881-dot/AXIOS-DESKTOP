@@ -1742,5 +1742,21 @@
     "category": "general",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17837047272984742",
+    "text": "[운영 2026-07-10 사이클#339] CEO: 사람이 해야 잘되는 행동: 에이전트가 제시한 최종 영상 흐름과 시각적 구성 피드백을 검토하고, 다음 주 콘텐",
+    "tags": [
+      "339",
+      "2026",
+      "운영",
+      "사이클",
+      "ceo",
+      "사람이"
+    ],
+    "ts": 1783704727298,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
