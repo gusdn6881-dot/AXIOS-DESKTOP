@@ -958,5 +958,21 @@
     "category": "marketing",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17836588305552257",
+    "text": "[운영 2026-07-10 사이클#200] Writer: 에이전트가 기존 도출된 최종 마케팅 메시지와 숏폼 스크립트를 기반으로 'AXIOS UNIVERSTY'의 핵심 / Researcher: 에이전트가 작성된 숏폼 스크립트와 기존 데이터(실시간 점검)를 비교하여 예상되는 반응 지표(조회수/참여율)의",
+    "tags": [
+      "에이전트가",
+      "기존",
+      "숏폼",
+      "200",
+      "2026",
+      "운영"
+    ],
+    "ts": 1783658830555,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
