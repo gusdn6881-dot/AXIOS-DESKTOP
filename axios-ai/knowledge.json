@@ -1838,5 +1838,37 @@
     "category": "marketing",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17837080260572869",
+    "text": "[운영 2026-07-10 사이클#349] CEO: 사람이 해야 잘되는 행동: 에이전트가 제시한 스크립트 초안과 시각적 구성(Visual Flow) 피드백을 검",
+    "tags": [
+      "349",
+      "2026",
+      "운영",
+      "사이클",
+      "ceo",
+      "사람이"
+    ],
+    "ts": 1783708026057,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
+  },
+  {
+    "id": "n1783708359824450",
+    "text": "[운영 2026-07-10 사이클#350] CEO: 사람이 해야 잘되는 행동: 에이전트가 제시한 최종 스크립트와 시각적 구성(Visual Flow) 피드백을 검",
+    "tags": [
+      "350",
+      "2026",
+      "운영",
+      "사이클",
+      "ceo",
+      "사람이"
+    ],
+    "ts": 1783708359824,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
