@@ -1166,5 +1166,21 @@
     "category": "marketing",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17836723745532211",
+    "text": "[운영 2026-07-10 사이클#241] CEO: 사람이 해야 잘되는 행동: 에이전트가 도출한 5개의 마케팅 메시지 초안 중 최종 방향성을 결정하여 다음 스프",
+    "tags": [
+      "241",
+      "2026",
+      "운영",
+      "사이클",
+      "ceo",
+      "사람이"
+    ],
+    "ts": 1783672374553,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
