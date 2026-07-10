@@ -2270,5 +2270,37 @@
     "category": "marketing",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17837208952947953",
+    "text": "[운영 2026-07-10 사이클#388] Researcher: 'AXIOS UNIVERSTY' 반응률 최적화 주제 3가지와 과거 피드백(Cycle #356)을 분석하여 가 / Writer: 리서처가 제시한 가장 반응률이 높은 주제에 대해 유튜브용 스크립트 초안 3개를 작성 (초안 생성) / 루나: 사장님이 확정한 핵심 메시지를 기반으로 유튜브 스크립트 초안 3개의 시각적 구성(영상 구도) 초안을 작성",
+    "tags": [
+      "초안",
+      "스크립트",
+      "작성",
+      "356",
+      "388",
+      "2026"
+    ],
+    "ts": 1783720895294,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
+  },
+  {
+    "id": "n17837212296633900",
+    "text": "[운영 2026-07-10 사이클#389] Researcher: 'AXIOS UNIVERSTY' 반응률 최적화 주제 3가지와 과거 피드백(Cycle #356)을 분석하여 가 / Writer: 리서처가 제시한 가장 반응률이 높은 주제에 대해 유튜브용 스크립트 초안 3개를 생성합니다.",
+    "tags": [
+      "356",
+      "389",
+      "2026",
+      "운영",
+      "사이클",
+      "researcher"
+    ],
+    "ts": 1783721229663,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
