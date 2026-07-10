@@ -1214,5 +1214,21 @@
     "category": "marketing",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17836769876302002",
+    "text": "[운영 2026-07-10 사이클#255] CEO: 사람이 해야 잘되는 행동: 에이전트가 제시한 5개의 마케팅 메시지 초안과 숏폼 스크립트 초안을 검토하고, 다",
+    "tags": [
+      "255",
+      "2026",
+      "운영",
+      "사이클",
+      "ceo",
+      "사람이"
+    ],
+    "ts": 1783676987630,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
