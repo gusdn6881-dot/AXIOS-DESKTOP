@@ -1086,5 +1086,21 @@
     "category": "marketing",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17836670976324684",
+    "text": "[운영 2026-07-10 사이클#225] Researcher: 지난 피드백([운영 2026-07-10 사이클#212])을 기반으로 'AXIOS UNIVERSTY'의 핵심  / Writer: 리서치 결과를 기반으로, 가장 반응률이 높을 것으로 예상되는 다음 주 마케팅 메시지 초안 5개를 작성합니다.",
+    "tags": [
+      "2026",
+      "운영",
+      "사이클",
+      "기반으로",
+      "212",
+      "225"
+    ],
+    "ts": 1783667097632,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
