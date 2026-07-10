@@ -1278,5 +1278,21 @@
     "category": "marketing",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n1783680301127334",
+    "text": "[운영 2026-07-10 사이클#265] CEO: 사람이 해야 잘되는 행동: 에이전트가 제시한 최종 숏폼 스크립트와 과거 피드백([운영 2026-07-10 사",
+    "tags": [
+      "2026",
+      "운영",
+      "265",
+      "사이클",
+      "ceo",
+      "사람이"
+    ],
+    "ts": 1783680301127,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
