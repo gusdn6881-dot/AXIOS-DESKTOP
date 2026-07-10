@@ -1294,5 +1294,21 @@
     "category": "marketing",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17836809493507059",
+    "text": "[운영 2026-07-10 사이클#267] 영숙: Researcher: 지난 피드백을 기반으로 'AXIOS UNIVERSTY'의 반응률이 가장 높을 것으로 예",
+    "tags": [
+      "267",
+      "2026",
+      "운영",
+      "사이클",
+      "영숙",
+      "researcher"
+    ],
+    "ts": 1783680949350,
+    "category": "general",
+    "source": "agent",
+    "verified": true
   }
 ]
