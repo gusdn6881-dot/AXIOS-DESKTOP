@@ -1390,5 +1390,21 @@
     "category": "marketing",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17836855825103592",
+    "text": "[운영 2026-07-10 사이클#281] CEO: 사람이 해야 잘되는 행동: 에이전트가 제시한 최종 스크립트 초안과 피드백을 검토하여, 다음 주에 즉시 발행할",
+    "tags": [
+      "281",
+      "2026",
+      "운영",
+      "사이클",
+      "ceo",
+      "사람이"
+    ],
+    "ts": 1783685582510,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
