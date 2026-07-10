@@ -1758,5 +1758,21 @@
     "category": "marketing",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17837053759735422",
+    "text": "[운영 2026-07-10 사이클#341] CEO: 사람이 해야 잘되는 행동: 에이전트가 제시한 마케팅 주제 우선순위와 후킹 포인트에 대해 최종 검토하고 다음",
+    "tags": [
+      "341",
+      "2026",
+      "운영",
+      "사이클",
+      "ceo",
+      "사람이"
+    ],
+    "ts": 1783705375973,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
