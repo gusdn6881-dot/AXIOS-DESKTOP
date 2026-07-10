@@ -926,5 +926,37 @@
     "category": "marketing",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17836561873071898",
+    "text": "[운영 2026-07-10 사이클#192] CEO: 사람이 해야 잘되는 행동: 에이전트가 도출한 최종 마케팅 메시지 및 숏폼 스크립트를 검토하고, 다음 스프린트",
+    "tags": [
+      "192",
+      "2026",
+      "운영",
+      "사이클",
+      "ceo",
+      "사람이"
+    ],
+    "ts": 1783656187307,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
+  },
+  {
+    "id": "n17836565151413402",
+    "text": "[운영 2026-07-10 사이클#193] Writer: 선정된 최종 마케팅 메시지를 기반으로 서비스의 핵심 가치(AXIOS UNIVERSTY)를 담은 숏폼 스크립트",
+    "tags": [
+      "193",
+      "2026",
+      "운영",
+      "사이클",
+      "writer",
+      "선정된"
+    ],
+    "ts": 1783656515141,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
