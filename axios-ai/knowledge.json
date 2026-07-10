@@ -1310,5 +1310,21 @@
     "category": "general",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17836816228223976",
+    "text": "[운영 2026-07-10 사이클#269] Researcher: 지난 피드백 기반으로 'AXIOS UNIVERSTY'의 반응률이 가장 높을 것으로 예상되는 다음 주 마케팅  / 루나: 작성된 숏폼 스크립트를 기반으로 영상의 흐름과 후킹 포인트를 검토하고 시각적 구성에 대한 피드백 정리",
+    "tags": [
+      "피드백",
+      "기반으로",
+      "269",
+      "2026",
+      "운영",
+      "사이클"
+    ],
+    "ts": 1783681622822,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
