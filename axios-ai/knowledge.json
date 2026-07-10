@@ -1678,5 +1678,21 @@
     "category": "marketing",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17837024094922063",
+    "text": "[운영 2026-07-10 사이클#332] Researcher: 'AXIOS UNIVERSTY' 반응률 최적화 주제 3가지와 해당 데이터를 분석하여 최종 우선순위를 도출 / 루나: 작성된 스크립트 초안의 영상 흐름과 후킹 포인트에 맞춰 시각적 구성(Visual Flow) 피드백 제공",
+    "tags": [
+      "332",
+      "2026",
+      "운영",
+      "사이클",
+      "researcher",
+      "axios"
+    ],
+    "ts": 1783702409492,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
