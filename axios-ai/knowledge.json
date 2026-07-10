@@ -990,5 +990,21 @@
     "category": "marketing",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17836601643276382",
+    "text": "[운영 2026-07-10 사이클#204] CEO: 최종 검토 및 승인: 에이전트가 작성한 숏폼 스크립트와 과거 피드백([운영 2026-07-10 사이클#178",
+    "tags": [
+      "2026",
+      "운영",
+      "사이클",
+      "178",
+      "204",
+      "ceo"
+    ],
+    "ts": 1783660164327,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
