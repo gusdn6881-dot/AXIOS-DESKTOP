@@ -894,5 +894,37 @@
     "category": "marketing",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17836555378916760",
+    "text": "[운영 2026-07-10 사이클#190] CEO: 대표님은 에이전트가 도출한 최종 마케팅 메시지 및 숏폼 스크립트를 검토하고, 다음 스프린트의 방향성을 승인하",
+    "tags": [
+      "190",
+      "2026",
+      "운영",
+      "사이클",
+      "ceo",
+      "대표님은"
+    ],
+    "ts": 1783655537891,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
+  },
+  {
+    "id": "n17836558692794332",
+    "text": "[운영 2026-07-10 사이클#191] Writer: 에이전트가 도출한 최종 마케팅 메시지 및 숏폼 스크립트를 검토하여 서비스의 핵심 가치(AXIOS UNIVER",
+    "tags": [
+      "191",
+      "2026",
+      "운영",
+      "사이클",
+      "writer",
+      "에이전트가"
+    ],
+    "ts": 1783655869280,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
