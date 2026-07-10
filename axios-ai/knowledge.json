@@ -1470,5 +1470,21 @@
     "category": "marketing",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n1783691205192196",
+    "text": "[운영 2026-07-10 사이클#298] Writer: 도출된 최종 스크립트 초안 중 가장 시급한 주제에 대해, Researcher가 제시한 영상 흐름 및 후킹 포",
+    "tags": [
+      "298",
+      "2026",
+      "운영",
+      "사이클",
+      "writer",
+      "도출된"
+    ],
+    "ts": 1783691205192,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
