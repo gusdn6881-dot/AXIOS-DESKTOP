@@ -830,5 +830,21 @@
     "category": "marketing",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17836528836736380",
+    "text": "[운영 2026-07-10 사이클#182] CEO: 에이전트가 도출한 개선 방향 3가지와 마케팅 메시지 초안 전체를 검토하고 다음 스프린트의 실행 로드맵을 승인",
+    "tags": [
+      "182",
+      "2026",
+      "운영",
+      "사이클",
+      "ceo",
+      "에이전트가"
+    ],
+    "ts": 1783652883673,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
