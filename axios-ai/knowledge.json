@@ -2318,5 +2318,21 @@
     "category": "marketing",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17837255247738315",
+    "text": "[운영 2026-07-10 사이클#402] CEO: 사람이 해야 잘되는 행동: Writer가 생성한 스크립트 초안 3개 중 가장 핵심 메시지에 대해 최종적인 톤",
+    "tags": [
+      "402",
+      "2026",
+      "운영",
+      "사이클",
+      "ceo",
+      "사람이"
+    ],
+    "ts": 1783725524773,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
