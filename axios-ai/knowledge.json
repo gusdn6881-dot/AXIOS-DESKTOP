@@ -2910,5 +2910,21 @@
     "category": "marketing",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17837558089863020",
+    "text": "[운영 2026-07-11 사이클#494] CEO: 대표님은 Writer가 작성한 스크립트 초안 중 가장 핵심 메시지에 대한 최종 톤앤매너를 결정하고 승인합니다",
+    "tags": [
+      "494",
+      "2026",
+      "운영",
+      "사이클",
+      "ceo",
+      "대표님은"
+    ],
+    "ts": 1783755808986,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
