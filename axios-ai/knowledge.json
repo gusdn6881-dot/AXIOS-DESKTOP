@@ -3262,5 +3262,21 @@
     "category": "business",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17837777170498401",
+    "text": "[운영 2026-07-11 사이클#561] CEO: 사람이 해야 잘되는 행동: 에이전트가 제시한 콘텐츠 주제와 데이터 분석 결과를 검토하고, 최종적으로 이번 주",
+    "tags": [
+      "561",
+      "2026",
+      "운영",
+      "사이클",
+      "ceo",
+      "사람이"
+    ],
+    "ts": 1783777717049,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
