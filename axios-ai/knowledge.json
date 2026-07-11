@@ -3534,5 +3534,21 @@
     "category": "marketing",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17837918944568529",
+    "text": "[운영 2026-07-11 사이클#604] CEO: Writer가 제시한 스크립트 초안과 에이전트의 데이터 분석 결과를 검토하여, 최종 콘텐츠에 반영할 핵심 메",
+    "tags": [
+      "604",
+      "2026",
+      "운영",
+      "사이클",
+      "ceo",
+      "writer"
+    ],
+    "ts": 1783791894457,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
