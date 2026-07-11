@@ -2430,5 +2430,37 @@
     "category": "marketing",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17837310518405161",
+    "text": "[운영 2026-07-11 사이클#419] CEO: 최종 방향 설정: Writer가 생성한 3가지 스크립트 초안 중 가장 핵심 메시지에 대해 최종적인 톤앤매너를",
+    "tags": [
+      "419",
+      "2026",
+      "운영",
+      "사이클",
+      "ceo",
+      "최종"
+    ],
+    "ts": 1783731051841,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
+  },
+  {
+    "id": "n1783731372500760",
+    "text": "[운영 2026-07-11 사이클#420] CEO: 최종 방향 설정: Writer가 생성한 3가지 스크립트 초안 중 가장 핵심 메시지에 대해 최종적인 톤앤매너와",
+    "tags": [
+      "420",
+      "2026",
+      "운영",
+      "사이클",
+      "ceo",
+      "최종"
+    ],
+    "ts": 1783731372500,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
