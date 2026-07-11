@@ -3166,5 +3166,21 @@
     "category": "business",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17837681409582893",
+    "text": "[운영 2026-07-11 사이클#532] CEO: 에이전트가 제시한 톤앤매너 옵션 중 가장 전략적으로 판단되는 최종 1가지 톤앤매너를 결정하고 승인합니다.",
+    "tags": [
+      "532",
+      "2026",
+      "운영",
+      "사이클",
+      "ceo",
+      "에이전트가"
+    ],
+    "ts": 1783768140958,
+    "category": "business",
+    "source": "agent",
+    "verified": true
   }
 ]
