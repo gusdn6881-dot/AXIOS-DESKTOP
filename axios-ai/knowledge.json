@@ -3710,5 +3710,37 @@
     "category": "marketing",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17838044493437434",
+    "text": "[운영 2026-07-11 사이클#642] CEO: 사람이 해야 잘되는 행동: Writer가 제안한 최종 핵심 메시지와 에이전트의 데이터 분석 결과를 검토하여,",
+    "tags": [
+      "642",
+      "2026",
+      "운영",
+      "사이클",
+      "ceo",
+      "사람이"
+    ],
+    "ts": 1783804449343,
+    "category": "general",
+    "source": "agent",
+    "verified": true
+  },
+  {
+    "id": "n17838047777722892",
+    "text": "[운영 2026-07-11 사이클#643] Researcher: 지난 3개월간의 YouTube/Instagram 조회수 및 참여율 데이터를 종합 분석하여 이번 주에 집중할",
+    "tags": [
+      "643",
+      "2026",
+      "운영",
+      "사이클",
+      "researcher",
+      "지난"
+    ],
+    "ts": 1783804777773,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
