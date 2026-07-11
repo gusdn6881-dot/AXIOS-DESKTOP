@@ -3086,5 +3086,21 @@
     "category": "marketing",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17837645057305937",
+    "text": "[운영 2026-07-11 사이클#521] Researcher: 지난 3개월간의 YouTube/Instagram 조회수 및 참여율 데이터를 종합 분석하여 이번 주에 집중할  / Writer: 리서처가 선정한 최적 주제 중 가장 반응이 좋을 것으로 예상되는 주제 1개를 선정하고, 이에 대한 유튜브 영 / 루나: 작성된 스크립트 초안에 대해 핵심 메시지의 톤앤매너 검토 옵션 3가지를 제시하여 대표님의 피드백을 요청합니다",
+    "tags": [
+      "주제",
+      "521",
+      "2026",
+      "운영",
+      "사이클",
+      "researcher"
+    ],
+    "ts": 1783764505730,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
