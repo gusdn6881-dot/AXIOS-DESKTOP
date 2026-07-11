@@ -3694,5 +3694,21 @@
     "category": "general",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17838031328538575",
+    "text": "[운영 2026-07-11 사이클#638] CEO: 에이전트의 데이터 분석 결과와 3가지 톤앤매너 옵션을 검토하여, 이번 주 마케팅 콘텐츠에 적용할 최종 핵심",
+    "tags": [
+      "638",
+      "2026",
+      "운영",
+      "사이클",
+      "ceo",
+      "에이전트의"
+    ],
+    "ts": 1783803132853,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
