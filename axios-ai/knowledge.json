@@ -2702,5 +2702,21 @@
     "category": "marketing",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17837469016856650",
+    "text": "[운영 2026-07-11 사이클#467] CEO: Writer가 에이전트의 리서치 결과를 기반으로 해당 스크립트 초안 중 핵심 메시지에 대한 최종 톤앤매너를",
+    "tags": [
+      "467",
+      "2026",
+      "운영",
+      "사이클",
+      "ceo",
+      "writer"
+    ],
+    "ts": 1783746901685,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
