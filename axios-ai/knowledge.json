@@ -3550,5 +3550,37 @@
     "category": "marketing",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17837922306807616",
+    "text": "[운영 2026-07-11 사이클#605] Researcher: 지난 3개월간의 YouTube/Instagram 조회수 및 참여율 데이터를 종합 분석하여 이번 주에 집중할  / 루나: Writer가 작성한 스크립트 초안에 대해 데이터 분석 결과를 바탕으로 핵심 메시지의 톤앤매너 옵션 3가지를",
+    "tags": [
+      "605",
+      "2026",
+      "운영",
+      "사이클",
+      "researcher",
+      "지난"
+    ],
+    "ts": 1783792230680,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
+  },
+  {
+    "id": "n17837925582183286",
+    "text": "[운영 2026-07-11 사이클#606] Researcher: 지난 3개월간의 YouTube/Instagram 조회수 및 참여율 데이터를 종합 분석하여 이번 주에 가장 높 / 루나: 확정된 핵심 메시지와 톤앤매너를 기반으로, 해당 콘텐츠에 필요한 시각 자료(썸네일/배경 이미지)의 구체적인",
+    "tags": [
+      "606",
+      "2026",
+      "운영",
+      "사이클",
+      "researcher",
+      "지난"
+    ],
+    "ts": 1783792558218,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
