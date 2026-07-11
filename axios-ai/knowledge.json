@@ -3022,5 +3022,37 @@
     "category": "marketing",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17837605445864411",
+    "text": "[운영 2026-07-11 사이클#509] Researcher: 지난 3개월간의 YouTube/Instagram 조회수 및 참여율 데이터를 분석하여 가장 반응이 좋았던 주제 / 루나: 작성된 스크립트 초안에 대해 핵심 메시지의 톤앤매너 검토 및 승인 옵션 3가지를 제시합니다.",
+    "tags": [
+      "509",
+      "2026",
+      "운영",
+      "사이클",
+      "researcher",
+      "지난"
+    ],
+    "ts": 1783760544586,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
+  },
+  {
+    "id": "n17837608772437691",
+    "text": "[운영 2026-07-11 사이클#510] Researcher: 지난 3개월간의 YouTube/Instagram 조회수 및 참여율 데이터를 종합 분석하여, 다음 콘텐츠 주제 / 루나: 작성된 스크립트 초안 중, 핵심 메시지에 대한 톤앤매너 검토 옵션 3가지를 제시하여 대표님의 피드백을 요청합",
+    "tags": [
+      "510",
+      "2026",
+      "운영",
+      "사이클",
+      "researcher",
+      "지난"
+    ],
+    "ts": 1783760877243,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
