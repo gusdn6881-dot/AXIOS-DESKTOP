@@ -2718,5 +2718,37 @@
     "category": "marketing",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17837478881781462",
+    "text": "[운영 2026-07-11 사이클#470] CEO: 사람이 해야 잘되는 행동: Writer가 생성한 3가지 스크립트 초안 중 가장 핵심 메시지에 대한 최종적인",
+    "tags": [
+      "470",
+      "2026",
+      "운영",
+      "사이클",
+      "ceo",
+      "사람이"
+    ],
+    "ts": 1783747888178,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
+  },
+  {
+    "id": "n17837482122994720",
+    "text": "[운영 2026-07-11 사이클#471] CEO: 사람이 해야 잘되는 행동: Writer가 생성한 3가지 스크립트 초안 중 가장 핵심 메시지에 대한 최종적인",
+    "tags": [
+      "471",
+      "2026",
+      "운영",
+      "사이클",
+      "ceo",
+      "사람이"
+    ],
+    "ts": 1783748212299,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
