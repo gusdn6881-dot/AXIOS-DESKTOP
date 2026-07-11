@@ -2542,5 +2542,21 @@
     "category": "marketing",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17837359993703692",
+    "text": "[운영 2026-07-11 사이클#434] Researcher: 'AXIOS UNIVERSTY' 반응률 최적화 주제 3가지와 과거 피드백(Cycle #356)을 분석하여 가 / Writer: 리서처가 제시한 가장 반응률이 높은 주제에 대해 유튜브용 스크립트 초안 3개를 작성합니다. / CEO: Writer가 생성한 3가지 스크립트 초안 중 가장 핵심 메시지에 대해 최종적인 톤앤매너를 결정하고 확정합니",
+    "tags": [
+      "writer",
+      "가장",
+      "대해",
+      "스크립트",
+      "초안",
+      "356"
+    ],
+    "ts": 1783735999370,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
