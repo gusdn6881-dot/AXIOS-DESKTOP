@@ -3246,5 +3246,21 @@
     "category": "marketing",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17837770966774206",
+    "text": "[운영 2026-07-11 사이클#559] CEO: 사람이 해야 잘되는 행동: 에이전트가 제시한 톤앤매너 옵션 중 가장 전략적으로 판단되는 최종 1가지 톤앤매너",
+    "tags": [
+      "톤앤매너",
+      "559",
+      "2026",
+      "운영",
+      "사이클",
+      "ceo"
+    ],
+    "ts": 1783777096677,
+    "category": "business",
+    "source": "agent",
+    "verified": true
   }
 ]
