@@ -4078,5 +4078,21 @@
     "category": "general",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17838207628585452",
+    "text": "[운영 2026-07-12 사이클#692] CEO: 에이전트가 제시한 3가지 핵심 메시지 옵션과 과거 데이터 분석 결과를 검토하여 이번 주 마케팅에 적용할 최종",
+    "tags": [
+      "692",
+      "2026",
+      "운영",
+      "사이클",
+      "ceo",
+      "에이전트가"
+    ],
+    "ts": 1783820762858,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
