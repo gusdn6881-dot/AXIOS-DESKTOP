@@ -4062,5 +4062,21 @@
     "category": "marketing",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17838197990825692",
+    "text": "[운영 2026-07-12 사이클#689] CEO: 사람이 해야 잘되는 행동: 에이전트가 제시한 3가지 핵심 메시지 옵션과 데이터 분석 결과를 검토하여, 이번",
+    "tags": [
+      "689",
+      "2026",
+      "운영",
+      "사이클",
+      "ceo",
+      "사람이"
+    ],
+    "ts": 1783819799082,
+    "category": "general",
+    "source": "agent",
+    "verified": true
   }
 ]
