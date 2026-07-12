@@ -4238,5 +4238,21 @@
     "category": "general",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17838270784252652",
+    "text": "[운영 2026-07-12 사이클#711] Researcher: 지난 3개월간의 YouTube/Instagram 조회수 및 참여율 데이터를 종합 분석하여, 가장 높은 참여율 / Writer: 리서처의 분석 결과와 과거 성공 사례를 기반으로 이번 주 마케팅에 적용할 최종 핵심 메시지 옵션 3가지 초안 / Designer: 작성된 3가지 핵심 메시지를 시각화하여 AXIOS UNIVERSTY 서비스 홍보용 배너 및 카드뉴스 디자인",
+    "tags": [
+      "참여율",
+      "핵심",
+      "가지",
+      "711",
+      "2026",
+      "운영"
+    ],
+    "ts": 1783827078425,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
