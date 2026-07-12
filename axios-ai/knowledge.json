@@ -4126,5 +4126,21 @@
     "category": "general",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17838227691813472",
+    "text": "[운영 2026-07-12 사이클#698] CEO: 에이전트가 제시한 5가지 콘텐츠 초안과 데이터 분석 결과를 검토하여 이번 주에 발행할 최종 핵심 메시지 및",
+    "tags": [
+      "698",
+      "2026",
+      "운영",
+      "사이클",
+      "ceo",
+      "에이전트가"
+    ],
+    "ts": 1783822769181,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
