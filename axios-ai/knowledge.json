@@ -3982,5 +3982,21 @@
     "category": "marketing",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17838148349753469",
+    "text": "[운영 2026-07-12 사이클#674] CEO: 사람이 해야 잘되는 행동: 에이전트가 제시한 콘텐츠 초안과 데이터 분석 결과를 검토하여 최종 마케팅 콘텐츠",
+    "tags": [
+      "콘텐츠",
+      "674",
+      "2026",
+      "운영",
+      "사이클",
+      "ceo"
+    ],
+    "ts": 1783814834975,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
