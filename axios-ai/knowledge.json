@@ -3950,5 +3950,37 @@
     "category": "marketing",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17838140272543035",
+    "text": "[운영 2026-07-11 사이클#671] CEO: 에이전트가 제시한 3가지 핵심 메시지 옵션과 과거 데이터를 검토하여 이번 주 마케팅에 적용할 최종 핵심 메시",
+    "tags": [
+      "핵심",
+      "671",
+      "2026",
+      "운영",
+      "사이클",
+      "ceo"
+    ],
+    "ts": 1783814027255,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
+  },
+  {
+    "id": "n17838143427417689",
+    "text": "[운영 2026-07-11 사이클#672] Researcher: 지난 3개월간의 YouTube/Instagram 조회수 및 참여율 데이터를 종합 분석하여, 가장 높은 참여율",
+    "tags": [
+      "참여율",
+      "672",
+      "2026",
+      "운영",
+      "사이클",
+      "researcher"
+    ],
+    "ts": 1783814342742,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
