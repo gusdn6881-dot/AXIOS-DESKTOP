@@ -4046,5 +4046,21 @@
     "category": "marketing",
     "source": "agent",
     "verified": true
+  },
+  {
+    "id": "n17838168122108523",
+    "text": "[운영 2026-07-12 사이클#680] Researcher: 지난 3개월간의 YouTube/Instagram 조회수 및 참여율 데이터를 종합 분석하여, 가장 높은 참여율 / Writer: 분석된 데이터와 과거 성공 사례(클래스#664)를 기반으로 이번 주 마케팅에 적용할 최종 핵심 메시지 3가지 / 루나: 작성된 핵심 메시지 옵션을 바탕으로, 서비스 'AXIOS UNIVERSTY'의 최근 성공 사례 2건을 선정하",
+    "tags": [
+      "참여율",
+      "성공",
+      "사례",
+      "핵심",
+      "메시지",
+      "664"
+    ],
+    "ts": 1783816812210,
+    "category": "marketing",
+    "source": "agent",
+    "verified": true
   }
 ]
